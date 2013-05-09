@@ -1,5 +1,7 @@
 class LinksController < ApplicationController
 	def show
+		@link    = Link.find(params[:format])
+		@comment = Comment.new
 	end
 	
 	def new
