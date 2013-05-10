@@ -2,6 +2,7 @@ RubyIt::Application.routes.draw do
   devise_for :users
 
 	resource :pages
+	resource :votes
 	resource :links
 	resource :link
 	resource :comments
