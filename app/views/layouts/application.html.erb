@@ -17,7 +17,9 @@
     <script src="http://heroku.github.com/template-app-bootstrap/heroku.js"></script>
 
 	<%= content_for :sidebar do %>
+		<% if current_user.present? %>
 		<p><%= link_to "Add a link", new_link_path %></p>
+		<% end %>
 		<p><%= link_to "Search", search_path %></p>
 	<% end %>
   </head>
