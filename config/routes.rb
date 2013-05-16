@@ -6,6 +6,8 @@ RubyIt::Application.routes.draw do
 	resource :links
 	resource :link
 	resource :comments
+	
+	get 'search' => 'search#index'
 	root :to => "pages#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -21,7 +21,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-
+gem 'texticle', :require => 'texticle/rails'
 gem 'pg'
 gem 'will_paginate', '~> 3.0'
 gem 'jquery-rails'

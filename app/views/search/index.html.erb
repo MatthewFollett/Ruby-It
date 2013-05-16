@@ -1,0 +1,17 @@
+<%= form_tag(search_path, :method => "get", :style => "margin: 5px 0 0 0") do %>
+  <%= text_field_tag(:q, nil, :placeholder => "search") %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @search %>
+	Here are all the links that matched "<%= params[:q] %>"
+	<ul>
+		<% @links.each do |link| %>
+			<li>
+				<%= link_to "+", votes_path(:vote => {:link_id => link.id, :vote => 1}), :method => :post %> <%= link.votes.where(:vote => 1).count - link.votes.where(:vote => -1).count %>  <%= link_to "-", votes_path(:vote => {:link_id => link.id, :vote => -1}), :method => :post %>
+				<%= link_to link.title, link.url %><br>
+				<%= link_to "comments", link %>
+			</li>
+		<% end %>
+	<% end %>
+</ul>

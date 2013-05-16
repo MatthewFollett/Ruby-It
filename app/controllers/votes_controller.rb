@@ -8,6 +8,10 @@ class VotesController < ApplicationController
 	end
 	
 	def create
+		if(current_user.nil?)
+			redirect_to :back
+			return
+		end
 		@vote = Vote.where(:link_id => params[:vote][:link_id], :user_id => current_user.id).first
 		if @vote
 			@vote.vote = params[:vote][:vote]
